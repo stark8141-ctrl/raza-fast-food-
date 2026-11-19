@@ -97,10 +97,13 @@
 </head>
 <body class="bg-white text-[#1C1C1C] min-h-screen flex flex-col">
 
-  <!-- 1. BLACK & GOLD TOP BRAND HEADER + INVISIBLE 5-TAP ADMIN TRIGGER -->
+  <!-- =====================================================================
+       1. BLACK & GOLD TOP BRAND HEADER + INVISIBLE 5-TAP ADMIN TRIGGER
+  ====================================================================== -->
   <header class="sticky top-0 z-40 bg-[#121212] text-white shadow-md">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
       <div class="flex items-center gap-3 min-w-0">
+        <!-- Custom Burger & Utensils Black & Gold SVG Logo -->
         <div class="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
           <svg viewBox="0 0 120 120" class="w-12 h-12 drop-shadow-[0_2px_10px_rgba(255,193,7,0.35)]">
             <defs>
@@ -112,14 +115,18 @@
             </defs>
             <circle cx="60" cy="60" r="56" fill="#121214" stroke="url(#razaGoldGrad)" stroke-width="4"/>
             <circle cx="60" cy="60" r="50" fill="none" stroke="#FFC107" stroke-opacity="0.28" stroke-width="1.2"/>
+            <!-- Burger Top Bun -->
             <path d="M36 42 C36 27, 84 27, 84 42 Z" fill="url(#razaGoldGrad)"/>
             <circle cx="50" cy="34" r="1.5" fill="#121214"/>
             <circle cx="60" cy="32" r="1.5" fill="#121214"/>
             <circle cx="70" cy="34" r="1.5" fill="#121214"/>
+            <!-- Lettuce & Fiery Red Patty -->
             <path d="M34 46 Q42 43 50 46 T66 46 T86 46" stroke="#4ADE80" stroke-width="2.6" fill="none" stroke-linecap="round"/>
             <rect x="35" y="50" width="50" height="4.5" rx="2.2" fill="#D32F2F"/>
+            <!-- Brand Typography -->
             <text x="60" y="75" font-family="Inter, sans-serif" font-weight="900" font-size="22" fill="url(#razaGoldGrad)" text-anchor="middle" letter-spacing="-0.5">Raza</text>
             <text x="60" y="87" font-family="Inter, sans-serif" font-weight="800" font-size="7.5" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.8">FAST FOOD</text>
+            <!-- Crossed Utensils -->
             <line x1="51" y1="94" x2="69" y2="104" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
             <line x1="69" y1="94" x2="51" y2="104" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
           </svg>
@@ -127,6 +134,7 @@
 
         <div class="min-w-0">
           <div class="flex items-center gap-2 flex-wrap">
+            <!-- SECRET 5-TAP TRIGGER TARGET (Zero visible lock/login icons) -->
             <h1 id="brandTitleTrigger" class="text-lg sm:text-xl font-black tracking-tight text-white leading-none cursor-pointer">
               RAZA <span class="text-[#FFC107]">FAST FOOD</span>
             </h1>
@@ -140,6 +148,7 @@
         </div>
       </div>
 
+      <!-- Right Status: Offline Indicator + Subtle Admin Mode Badge (Only when logged in) -->
       <div class="flex flex-col items-end gap-1 flex-shrink-0">
         <span id="offlineBadge" class="hidden text-[10px] font-extrabold bg-[#D32F2F] text-white px-2.5 py-0.5 rounded-full">
           Offline Mode
@@ -151,17 +160,21 @@
     </div>
   </header>
 
-  <!-- 2. 16:9 WIDESCREEN SMART MEDIA SLIDER -->
+  <!-- =====================================================================
+       2. 16:9 WIDESCREEN SMART MEDIA SLIDER (Image 5s + Video Full-Length Auto-Advance)
+  ====================================================================== -->
   <section aria-label="Promotional Offers" class="max-w-3xl w-full mx-auto">
     <div id="heroSliderContainer" class="relative w-full aspect-video overflow-hidden bg-[#121212] shadow-md">
       <div id="heroSlideStage" class="w-full h-full relative flex items-center justify-center bg-[#141416]"></div>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/75 to-transparent"></div>
 
+      <!-- Video Mute/Unmute Toggle -->
       <button id="videoMuteBtn" onclick="toggleVideoMute(event)" class="hidden absolute top-3 right-3 z-20 bg-black/75 hover:bg-black text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 backdrop-blur-md active:scale-95 transition">
         <span id="videoMuteIcon">🔊</span>
         <span id="videoMuteLabel">Sound On</span>
       </button>
 
+      <!-- Desktop Prev/Next Controls -->
       <button onclick="prevSlide()" aria-label="Previous Slide" class="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/55 text-white hover:bg-black/85 items-center justify-center text-base font-bold">
         ‹
       </button>
@@ -169,11 +182,14 @@
         ›
       </button>
 
+      <!-- Slide Dots -->
       <div id="heroSliderDots" class="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5"></div>
     </div>
   </section>
 
-  <!-- 3. ACTIVE CUSTOMER TABLE CHECK-IN STRIP -->
+  <!-- =====================================================================
+       3. ACTIVE CUSTOMER TABLE CHECK-IN STRIP (Shown ONLY to checked-in guest)
+  ====================================================================== -->
   <div id="activeGuestTableStrip" class="hidden max-w-3xl w-full mx-auto px-4 pt-3">
     <div class="bg-[#121212] text-white rounded-2xl px-4 py-2.5 flex items-center justify-between gap-2 shadow-sm">
       <div class="min-w-0">
@@ -190,7 +206,9 @@
     </div>
   </div>
 
-  <!-- 4. DUAL MODE TABS -->
+  <!-- =====================================================================
+       4. DUAL MODE TABS (BELOW 16:9 BANNER)
+  ====================================================================== -->
   <nav class="max-w-3xl w-full mx-auto px-4 mt-3 hairline-b bg-white">
     <div class="grid grid-cols-2">
       <button id="tabBtnMenu" onclick="switchMainTab('menu')" class="py-3 text-center font-extrabold text-xs sm:text-sm border-b-2 border-[#D32F2F] text-[#D32F2F] transition-all">
@@ -202,13 +220,18 @@
     </div>
   </nav>
 
-  <!-- MAIN ZOMATO-STYLE BRIGHT WHITE CONTENT CANVAS -->
+  <!-- =====================================================================
+       MAIN ZOMATO-STYLE BRIGHT WHITE CONTENT CANVAS
+  ====================================================================== -->
   <main class="flex-1 max-w-3xl w-full mx-auto pb-32 bg-white">
 
-    <!-- 5. TAB 1: COMPLETE DIGITAL MENU -->
+    <!-- ===================================================================
+         5. TAB 1: COMPLETE DIGITAL MENU (46 DISHES + PHOTOS + VARIANTS)
+    ==================================================================== -->
     <section id="viewMenu" class="block">
-      <div id="menuDeliveryStrip" class="px-4 py-2.5 hairline-b flex items-center justify-between gap-3 bg-[#FFFDF5]">
-        <div id="menuDeliveryOfferContent" class="flex items-center gap-2 min-w-0">
+      <!-- Delivery Offer Strip -->
+      <div class="px-4 py-2.5 hairline-b flex items-center justify-between gap-3 bg-[#FFFDF5]">
+        <div class="flex items-center gap-2 min-w-0">
           <span class="text-base flex-shrink-0">🛵</span>
           <p class="text-xs text-gray-700 truncate">
             <strong class="text-[#121212] bg-[#FFC107] px-1.5 py-0.5 rounded">FREE Delivery</strong> on orders <strong class="text-[#1C1C1C]">₹200+</strong> • <span id="menuTimingBanner" class="text-gray-500">6:00 PM – 12:00 AM</span>
@@ -219,6 +242,7 @@
         </button>
       </div>
 
+      <!-- Sticky Search + Veg Filter + Horizontal Category Pills -->
       <div class="sticky top-[72px] z-30 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-2.5 hairline-b space-y-2.5">
         <div class="flex items-center gap-2">
           <div class="relative flex-1">
@@ -238,10 +262,13 @@
         <div id="categoryPills" class="flex items-center gap-2 overflow-x-auto no-scrollbar"></div>
       </div>
 
+      <!-- Seamless Hairline-Separated Dish List (Zero Clunky Boxes) -->
       <div id="menuContainer" class="px-4"></div>
     </section>
 
-    <!-- 6. TAB 2: GEOFENCED "LIVE GAME" & HALAL BRAIN ARENA -->
+    <!-- ===================================================================
+         6. TAB 2: GEOFENCED "LIVE GAME" & HALAL BRAIN ARENA
+    ==================================================================== -->
     <section id="viewArena" class="hidden px-4 pt-4 space-y-6 bg-white">
       <div class="pb-4 hairline-b">
         <div class="flex items-start justify-between gap-3">
@@ -270,6 +297,7 @@
           </div>
         </div>
 
+        <!-- Live Match Spectator Feed (Visible Anywhere) -->
         <div class="mt-3.5 flex items-center gap-2 text-xs font-bold text-[#1C1C1C] bg-[#FFFBEB] px-3 py-2 rounded-full">
           <span class="w-2.5 h-2.5 rounded-full bg-[#D32F2F] animate-live flex-shrink-0"></span>
           <p id="liveSpectatorTicker" class="truncate">
@@ -278,6 +306,7 @@
         </div>
       </div>
 
+      <!-- Cafe Auto-Unlock Status (QR Check-In OR 100m Cafe GPS — No PIN Needed) -->
       <div class="pb-5 hairline-b space-y-3">
         <div class="flex items-center justify-between gap-2">
           <h3 class="font-extrabold text-sm text-[#1C1C1C]">📍 Cafe Live Game Access</h3>
@@ -297,7 +326,9 @@
         </div>
       </div>
 
+      <!-- 3 Graphic-Rich Skill & Knowledge Games -->
       <div class="divide-y divide-[#EFEFEF] hairline-b">
+        <!-- Game 1 Card -->
         <div class="py-4 flex items-center justify-between gap-3">
           <div class="flex items-center gap-3 min-w-0">
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#121212] to-[#27272A] flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -324,6 +355,7 @@
           </button>
         </div>
 
+        <!-- Game 2 Card -->
         <div class="py-4 flex items-center justify-between gap-3">
           <div class="flex items-center gap-3 min-w-0">
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#064E3B] to-[#121212] flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -345,6 +377,7 @@
           </button>
         </div>
 
+        <!-- Game 3 Card -->
         <div class="py-4 flex items-center justify-between gap-3">
           <div class="flex items-center gap-3 min-w-0">
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#7F1D1D] to-[#121212] flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -371,8 +404,10 @@
         </div>
       </div>
 
+      <!-- Active Game Stage -->
       <div id="activeGameArenaBox" class="hidden bg-gradient-to-b from-[#16161A] to-[#0D0D0D] text-white rounded-3xl p-4 sm:p-5 shadow-2xl border border-[#FFC107]/25"></div>
 
+      <!-- Today's Top Table Leaderboard -->
       <div>
         <div class="flex items-center justify-between mb-2">
           <div>
@@ -385,7 +420,9 @@
       </div>
     </section>
 
-    <!-- 7. BLACK & GOLD BRAND FOOTER -->
+    <!-- ===================================================================
+         7. BLACK & GOLD BRAND FOOTER
+    ==================================================================== -->
     <footer class="mt-10 px-4 pt-6 pb-8 bg-[#121212] text-gray-300 rounded-t-3xl">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -429,7 +466,9 @@
     </footer>
   </main>
 
-  <!-- 8. ZOMATO CIRCULAR FLOATING "MENU" BUTTON & CATEGORY POPOVER -->
+  <!-- =====================================================================
+       8. ZOMATO CIRCULAR FLOATING "MENU" BUTTON & CATEGORY POPOVER
+  ====================================================================== -->
   <button id="floatingMenuFab" onclick="openQuickMenuSheet()" class="fixed bottom-5 right-4 z-40 w-16 h-16 rounded-full bg-[#121212] text-[#FFC107] shadow-[0_8px_24px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center active:scale-95 transition">
     <span class="text-base leading-none">🍴</span>
     <span class="text-[9px] font-black tracking-wider mt-0.5">MENU</span>
@@ -445,7 +484,9 @@
     </div>
   </div>
 
-  <!-- 9. FLOATING CRIMSON CART BAR -->
+  <!-- =====================================================================
+       9. FLOATING CRIMSON CART BAR
+  ====================================================================== -->
   <div id="floatingCartBar" class="hidden fixed bottom-3 inset-x-0 z-40 px-4 pointer-events-none">
     <div class="max-w-3xl mx-auto pointer-events-auto">
       <button onclick="openCartDrawer()" class="w-full bg-[#E23744] hover:bg-red-700 text-white rounded-2xl px-4 py-3.5 shadow-[0_10px_28px_rgba(226,55,68,0.4)] flex items-center justify-between active:scale-[0.99] transition">
@@ -463,7 +504,9 @@
     </div>
   </div>
 
-  <!-- 10. CART DRAWER & DUAL TABLE / HOME DELIVERY WHATSAPP CHECKOUT -->
+  <!-- =====================================================================
+       10. CART DRAWER & DUAL TABLE / HOME DELIVERY WHATSAPP CHECKOUT
+  ====================================================================== -->
   <div id="cartDrawerOverlay" onclick="if(event.target===this) closeCartDrawer()" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-end justify-center">
     <div class="bg-white text-[#1C1C1C] w-full max-w-2xl rounded-t-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl animate-sheet-up">
       <div class="px-5 py-4 hairline-b flex items-center justify-between">
@@ -477,6 +520,7 @@
       <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4">
         <div id="cartItemsList" class="divide-y divide-[#EFEFEF]"></div>
 
+        <!-- Order Type Switch -->
         <div class="pt-2 space-y-2.5">
           <label class="block text-[11px] font-extrabold text-gray-500 uppercase tracking-wider">Order Type</label>
           <div class="grid grid-cols-2 gap-2 bg-[#F3F4F6] p-1 rounded-full">
@@ -488,11 +532,15 @@
             </button>
           </div>
 
-          <div id="dineInFieldBox" class="space-y-2.5 bg-[#FFFDF5] p-3.5 rounded-2xl"></div>
+          <!-- Dine-In Box (Adapts automatically between Trial Mode & Strict QR Mode) -->
+          <div id="dineInFieldBox" class="space-y-2.5 bg-[#FFFDF5] p-3.5 rounded-2xl">
+            <!-- Rendered dynamically based on Trial vs Strict QR Mode & Guest Check-in -->
+          </div>
 
+          <!-- Home Delivery Form -->
           <div id="deliveryFieldBox" class="hidden space-y-2 bg-[#F8F9FA] p-3.5 rounded-2xl">
             <p class="text-[11px] text-[#D97706] font-bold">
-              ⏰ <span id="drawerDeliveryTimingsText">6:00 PM – 12:00 AM</span> • Area: Chawal Ka Mad to Jamea Tul Hidaya, Nai Ki Thadi
+              ⏰ 6:00 PM – 12:00 AM • Area: Chawal Ka Mad to Jamea Tul Hidaya, Nai Ki Thadi
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <input id="deliveryCustomerNameInput" type="text" oninput="syncDirectWhatsAppHrefs()" placeholder="Your Full Name *" class="w-full bg-white text-[#1C1C1C] ring-1 ring-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-bold outline-none focus:ring-2 focus:ring-[#FFC107]" />
@@ -504,14 +552,17 @@
           <input id="orderNoteInput" type="text" oninput="syncDirectWhatsAppHrefs()" placeholder="Cooking Note (Optional - e.g., Less Spicy / Extra Cheese)" class="w-full bg-[#F3F4F6] text-[#1C1C1C] rounded-xl px-4 py-2.5 text-xs font-medium outline-none focus:ring-2 focus:ring-[#FFC107]" />
         </div>
 
+        <!-- Automatic ₹200 Free Delivery Rule Banner -->
         <div id="deliveryRuleBox" class="rounded-2xl p-3 text-xs font-bold"></div>
 
+        <!-- Bill Total -->
         <div class="pt-3 hairline-t flex items-center justify-between">
           <span class="text-sm font-bold text-gray-600">Grand Total</span>
           <span class="text-2xl font-black text-[#1C1C1C]">₹<span id="drawerGrandTotal">0</span></span>
         </div>
       </div>
 
+      <!-- Direct No-Greeting WhatsApp Launch Buttons -->
       <div class="p-4 hairline-t bg-white space-y-2">
         <a id="waPrimaryDirectLink" href="https://wa.me/919664251689" target="_blank" rel="noopener noreferrer" onclick="return handleWhatsAppClick(event, 'primary')" class="w-full bg-[#24963F] hover:bg-green-700 text-white font-black text-sm py-3.5 px-4 rounded-full shadow-lg flex items-center justify-center gap-2 active:scale-95 transition">
           <span>📲 Order on WhatsApp (Danish Raza)</span>
@@ -523,7 +574,9 @@
     </div>
   </div>
 
-  <!-- 11. QR TABLE CHECK-IN MODAL -->
+  <!-- =====================================================================
+       11. QR TABLE CHECK-IN MODAL (Triggered via ?table=X&token=... or Admin Test)
+  ====================================================================== -->
   <div id="qrCheckInModal" onclick="if(event.target===this) closeQrCheckInModal()" class="hidden fixed inset-0 z-[55] bg-black/75 backdrop-blur-xs flex items-end sm:items-center justify-center p-4">
     <div class="bg-white text-[#1C1C1C] w-full max-w-md rounded-3xl p-5 shadow-2xl space-y-3.5 animate-sheet-up">
       <div class="flex items-center justify-between">
@@ -548,7 +601,9 @@
     </div>
   </div>
 
-  <!-- 12. WHATSAPP FALLBACK LAUNCH & COPY SHEET -->
+  <!-- =====================================================================
+       12. WHATSAPP FALLBACK LAUNCH & COPY SHEET
+  ====================================================================== -->
   <div id="waFallbackModal" onclick="if(event.target===this) closeWaFallbackModal()" class="hidden fixed inset-0 z-[55] bg-black/65 backdrop-blur-xs flex items-end sm:items-center justify-center p-4">
     <div class="bg-white text-[#1C1C1C] w-full max-w-md rounded-3xl p-5 shadow-2xl space-y-3.5 animate-sheet-up">
       <div class="flex items-center justify-between">
@@ -570,7 +625,9 @@
     </div>
   </div>
 
-  <!-- 13. INVISIBLE 5-TAP SECRET ADMIN PASSCODE MODAL (@qwer) -->
+  <!-- =====================================================================
+       13. INVISIBLE 5-TAP SECRET ADMIN PASSCODE MODAL (@qwer)
+  ====================================================================== -->
   <div id="secretPasswordModal" onclick="if(event.target===this) closeSecretModal()" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
     <div class="bg-[#121214] text-white w-full max-w-xs rounded-3xl p-5 shadow-2xl space-y-3.5">
       <div class="flex items-center justify-between">
@@ -586,7 +643,9 @@
     </div>
   </div>
 
-  <!-- 14. FULL-SCREEN 6-TAB ADMIN DASHBOARD -->
+  <!-- =====================================================================
+       14. FULL-SCREEN 6-TAB ADMIN DASHBOARD (PRIVATE LIVE TABLE MONITOR INCLUDED)
+  ====================================================================== -->
   <div id="adminDashboardModal" class="hidden fixed inset-0 z-50 bg-[#0D0D0D] text-white flex flex-col">
     <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between bg-[#121214]">
       <div>
@@ -598,6 +657,7 @@
       </button>
     </div>
 
+    <!-- 6 Admin Navigation Pills -->
     <div class="px-3 py-2.5 border-b border-white/10 flex items-center gap-1.5 overflow-x-auto no-scrollbar bg-[#0D0D0D]">
       <button onclick="switchAdminTab('banners')" id="admTabBtn_banners" class="adm-tab-btn bg-[#FFC107] text-[#0D0D0D] font-extrabold text-xs px-3.5 py-2 rounded-full whitespace-nowrap">
         1. 16:9 Banners
@@ -625,7 +685,7 @@
       <div id="admTab_banners" class="adm-tab-panel space-y-4">
         <div>
           <h3 class="font-black text-sm text-[#FFC107] mb-1">Upload 16:9 Promotional Image or Video</h3>
-          <p class="text-xs text-gray-400 mb-3">Images advance in 5s. Videos play full length &amp; auto-pause when scrolled away or when modals open.</p>
+          <p class="text-xs text-gray-400 mb-3">Images advance in 5s. Videos play full length &amp; advance automatically on finish.</p>
           <label class="block w-full bg-[#161618] hover:bg-[#1E1E22] rounded-2xl p-4 text-center cursor-pointer transition">
             <span class="text-2xl block mb-1">🖼️🎬</span>
             <span class="text-xs font-extrabold text-white">Tap to Select Multiple Images or Videos from Gallery</span>
@@ -638,15 +698,16 @@
         </div>
       </div>
 
-      <!-- TAB 2: PRIVATE LIVE TABLES & QR MANAGER -->
+      <!-- TAB 2: PRIVATE LIVE TABLES & QR MANAGER (Visible ONLY to Admin) -->
       <div id="admTab_tables" class="adm-tab-panel hidden space-y-5">
+        <!-- Private Summary Counts -->
         <div class="grid grid-cols-3 gap-2.5 text-center">
           <div class="bg-[#161618] p-3 rounded-2xl">
-            <p class="text-[10px] font-bold text-gray-400 uppercase">Total Seats/Tables</p>
+            <p class="text-[10px] font-bold text-gray-400 uppercase">Total Tables</p>
             <p id="admStatTotalTables" class="text-xl font-black text-white mt-0.5">8</p>
           </div>
           <div class="bg-green-950/50 p-3 rounded-2xl">
-            <p class="text-[10px] font-bold text-green-400 uppercase">🟢 Free</p>
+            <p class="text-[10px] font-bold text-green-400 uppercase">🟢 Free Tables</p>
             <p id="admStatFreeTables" class="text-xl font-black text-green-400 mt-0.5">8</p>
           </div>
           <div class="bg-red-950/50 p-3 rounded-2xl">
@@ -655,19 +716,7 @@
           </div>
         </div>
 
-        <div class="bg-[#161618] p-4 rounded-2xl space-y-3 border border-[#FFC107]/25">
-          <div>
-            <h3 class="font-black text-sm text-[#FFC107]">🪑 Create Custom Seat / Table Number</h3>
-            <p class="text-[11px] text-gray-400">Apni marzi ka naam ya number likhein (e.g. Table 1, Table 2, VIP-1, Cabin 2). Ek hi naam dobara nahi banega.</p>
-          </div>
-          <div class="flex gap-2">
-            <input id="admCustomTableNameInput" type="text" onkeydown="if(event.key==='Enter') adminAddNewTable()" placeholder="Enter Seat/Table Name (e.g. Table 1)" class="flex-1 bg-[#0D0D0D] text-white ring-1 ring-white/15 focus:ring-2 focus:ring-[#FFC107] rounded-xl px-3.5 py-2.5 text-xs font-black outline-none" />
-            <button onclick="adminAddNewTable()" class="bg-[#FFC107] hover:bg-yellow-300 text-[#0D0D0D] font-black text-xs px-4 py-2.5 rounded-xl whitespace-nowrap active:scale-95 transition">
-              + Create Seat
-            </button>
-          </div>
-        </div>
-
+        <!-- Dual Table Mode Switch & Auto-Timeout -->
         <div class="bg-[#161618] p-4 rounded-2xl space-y-3">
           <div class="flex items-center justify-between gap-2">
             <div>
@@ -679,19 +728,26 @@
             </button>
           </div>
 
-          <div class="flex items-center justify-between gap-2.5 pt-2 border-t border-white/10">
-            <div class="flex-1">
+          <div class="grid grid-cols-2 gap-2.5 pt-2 border-t border-white/10">
+            <div>
               <label class="text-[11px] font-bold text-gray-400">Auto-Vacate Timeout (Mins)</label>
               <input id="admTableTimeoutMins" type="number" min="10" max="240" onchange="adminSaveTableTimeout(this.value)" class="w-full bg-[#0D0D0D] text-white rounded-xl px-3 py-2 text-xs font-black mt-1 outline-none" />
             </div>
-            <div class="flex flex-col justify-end pt-4">
-              <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-green-400 font-extrabold text-xs px-4 py-2.5 rounded-xl">
-                🖨️ Print All QR Cards
+            <div class="flex flex-col justify-end">
+              <button onclick="adminAddNewTable()" class="w-full bg-white/10 hover:bg-white/20 text-[#FFC107] font-black text-xs py-2.5 rounded-xl">
+                + Add New Table
               </button>
             </div>
           </div>
+
+          <div class="flex justify-end">
+            <button onclick="window.print()" class="text-xs font-extrabold text-green-400 hover:underline">
+              🖨️ Print All Table QR Cards
+            </button>
+          </div>
         </div>
 
+        <!-- Live Table List + Guests + 1-Tap Vacate + Printable QR -->
         <div id="qrPrintArea" class="space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="font-black text-sm text-white">Live Table Monitor &amp; QR Codes</h3>
@@ -714,9 +770,9 @@
               <option value="RICE">RICE</option>
               <option value="MOMOS">MOMOS</option>
               <option value="BURGER">BURGER</option>
-              <option value="CHOW MEIN & SIDES">CHOW MEIN &amp; SIDES</option>
+              <option value="CHOW MEIN">CHOW MEIN</option>
               <option value="SANDWICH">SANDWICH</option>
-              <option value="COFFEE & DRINKS">COFFEE &amp; DRINKS</option>
+              <option value="COFFEE">COFFEE</option>
             </select>
             <input id="newDishName" type="text" placeholder="Dish Name (e.g., Special Cheese Pizza)" class="bg-[#18181B] text-white rounded-2xl px-3.5 py-2.5 text-xs font-bold outline-none" />
           </div>
@@ -784,18 +840,8 @@
         </div>
       </div>
 
-      <!-- TAB 5: WHATSAPP, HOME DELIVERY MASTER SWITCH & CAFE SETTINGS -->
+      <!-- TAB 5: WHATSAPP & CAFE SETTINGS -->
       <div id="admTab_whatsapp" class="adm-tab-panel hidden space-y-4">
-        <div class="bg-[#161618] p-4 rounded-2xl border border-[#FFC107]/30 flex items-center justify-between gap-3">
-          <div>
-            <h3 class="font-black text-sm text-[#FFC107]">🛵 Home Delivery Master Switch</h3>
-            <p class="text-[11px] text-gray-400">Barish ya delivery boy chhutti par ho to yahan se Home Delivery pause karein (Dine-In chalta rahega)</p>
-          </div>
-          <button id="admMasterDeliveryToggleBtn" onclick="adminToggleHomeDelivery()" class="px-4 py-2 rounded-full font-black text-xs bg-[#24963F] text-white flex-shrink-0 transition active:scale-95">
-            🟢 Delivery ON
-          </button>
-        </div>
-
         <div class="space-y-3 pb-4 border-b border-white/10">
           <h3 class="font-black text-sm text-[#FFC107]">📲 Direct No-Greeting WhatsApp Order Template</h3>
           <p class="text-[11px] text-gray-400">
@@ -884,13 +930,20 @@
     </div>
   </div>
 
-  <!-- 15. NON-INTRUSIVE TOAST NOTIFICATION -->
+  <!-- =====================================================================
+       15. NON-INTRUSIVE TOAST NOTIFICATION
+  ====================================================================== -->
   <div id="toastBox" class="hidden fixed top-16 left-1/2 -translate-x-1/2 z-[60] bg-[#FFC107] text-[#121212] px-4 py-2 rounded-full shadow-2xl text-xs font-black text-center max-w-[90vw]">
     Message
   </div>
 
-  <!-- 16. COMPLETE APPLICATION JAVASCRIPT -->
+  <!-- =====================================================================
+       16. COMPLETE APPLICATION JAVASCRIPT
+  ====================================================================== -->
   <script>
+    /*************************************************************************
+     * A. PWA MANIFEST & OFFLINE SERVICE WORKER REGISTRATION
+     *************************************************************************/
     (function setupPWA() {
       try {
         const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#121212"/><circle cx="256" cy="256" r="220" fill="none" stroke="#FFC107" stroke-width="20"/><text x="256" y="280" font-family="Arial, sans-serif" font-weight="900" font-size="165" fill="#FFC107" text-anchor="middle">Raza</text><text x="256" y="365" font-family="Arial, sans-serif" font-weight="700" font-size="44" fill="#FFFFFF" text-anchor="middle">FAST FOOD</text></svg>`;
@@ -917,7 +970,7 @@
 
         if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
           const swCode = `
-            const CACHE_NAME = 'raza-fast-food-final-v2';
+            const CACHE_NAME = 'raza-fast-food-final-v1';
             self.addEventListener('install', e => self.skipWaiting());
             self.addEventListener('activate', e => e.waitUntil(clients.claim()));
             self.addEventListener('fetch', e => {
@@ -935,7 +988,9 @@
           const swBlob = new Blob([swCode], { type: 'application/javascript' });
           navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(() => {});
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn('PWA init:', err);
+      }
     })();
 
     function updateOnlineStatus() {
@@ -946,6 +1001,9 @@
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
 
+    /*************************************************************************
+     * B. INDEXEDDB FOR 16:9 BANNERS (Large Videos & High-Res Photos)
+     *************************************************************************/
     const DB_NAME = 'RazaFastFoodFinalDB';
     const DB_STORE = 'banners';
 
@@ -971,7 +1029,9 @@
         store.clear();
         banners.forEach((b, idx) => store.put({ ...b, order: idx }));
         return new Promise(res => { tx.oncomplete = () => res(true); });
-      } catch (e) {}
+      } catch (e) {
+        console.warn('IndexedDB save fallback', e);
+      }
     }
 
     async function loadBannersFromDB() {
@@ -1044,6 +1104,9 @@
       { id: 'bn_2', type: 'image', active: true, title: 'Challenge Other Tables in Live Halal Brain Arena!', src: createDefaultBannerSVG(2) }
     ];
 
+    /*************************************************************************
+     * C. COMPLETE 46-DISH MENU ACROSS ALL 8 CATEGORIES + PHOTOS & FALLBACKS
+     *************************************************************************/
     const FOOD_PHOTOS = {
       vegPizza: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=320&q=80',
       conePizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=320&q=80',
@@ -1123,6 +1186,7 @@
     }
 
     const DEFAULT_MENU = [
+      // 1. PIZZA
       { id: 'p1', category: 'PIZZA', name: 'Veg Pizza', desc: 'Fresh garden veggies, mozzarella cheese & signature pizza sauce.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.vegPizza, variants: [{ label: 'Regular', price: 100 }] },
       { id: 'p2', category: 'PIZZA', name: 'Cone Pizza', desc: 'Crispy golden cone stuffed with cheesy veggies & herbs.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.conePizza, variants: [{ label: 'Regular', price: 100 }] },
       { id: 'p3', category: 'PIZZA', name: 'Paneer Pizza', desc: 'Soft spiced paneer cubes topped with liquid mozzarella.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.paneerPizza, variants: [{ label: 'Regular', price: 120 }] },
@@ -1131,6 +1195,7 @@
       { id: 'p6', category: 'PIZZA', name: 'Otc Pizza', desc: 'Classic Onion, Tomato & Capsicum loaded cheese pizza.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.otcPizza, variants: [{ label: 'Regular', price: 160 }] },
       { id: 'p7', category: 'PIZZA', name: 'Chicken Cheese Pizza', desc: 'House special loaded chicken & extra gooey mozzarella.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.chickenCheesePizza, variants: [{ label: 'Regular', price: 199 }] },
 
+      // 2. CHICKEN'S
       { id: 'c1', category: "CHICKEN'S", name: 'Chicken Shawarma', desc: 'Tender roasted chicken wrapped in soft pita with garlic mayo.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.shawarma, variants: [{ label: 'Regular', price: 50 }] },
       { id: 'c2', category: "CHICKEN'S", name: 'Chicken Spring Roll', desc: 'Crispy golden fried rolls stuffed with spiced minced chicken.', isNonVeg: true, bestseller: false, available: true, photo: FOOD_PHOTOS.springRoll, variants: [{ label: 'Regular', price: 60 }] },
       { id: 'c3', category: "CHICKEN'S", name: 'Chicken Roll Amul Butter', desc: 'Flaky paratha roasted in rich Amul butter with juicy chicken.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.butterRoll, variants: [{ label: 'Regular', price: 70 }] },
@@ -1140,10 +1205,12 @@
       { id: 'c7', category: "CHICKEN'S", name: 'Chicken Popcorn', desc: 'Bite-sized crispy golden chicken bites seasoned with peri-peri.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.popcorn, variants: [{ label: '200g', price: 130 }, { label: '500g', price: 250 }] },
       { id: 'c8', category: "CHICKEN'S", name: 'Chicken Soup Pyala', desc: 'Hot & comforting slow-simmered chicken broth with black pepper.', isNonVeg: true, bestseller: false, available: true, photo: FOOD_PHOTOS.soup, variants: [{ label: '1 Pyala', price: 50 }] },
 
+      // 3. RICE
       { id: 'r1', category: 'RICE', name: 'Chicken Fried Rice', desc: 'Aromatic long-grain rice wok-tossed with chicken & spring onions.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.chickenRice, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
       { id: 'r2', category: 'RICE', name: 'Manchurian Rice', desc: 'Veg fried rice tossed with crispy Manchurian balls & tangy gravy.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.manchurianRice, variants: [{ label: 'Half', price: 40 }, { label: 'Full', price: 70 }] },
       { id: 'r3', category: 'RICE', name: 'Egg Rice', desc: 'Fluffy scrambled eggs wok-fried with seasoned basmati rice.', isNonVeg: true, bestseller: false, available: true, photo: FOOD_PHOTOS.eggRice, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
 
+      // 4. MOMOS
       { id: 'm1', category: 'MOMOS', name: 'Chilli Momos', desc: 'Crispy momos tossed in fiery garlic-chilli sauce & capsicum.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.chilliMomos, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
       { id: 'm2', category: 'MOMOS', name: 'Masala Momos', desc: 'Pan-tossed dumplings coated in chatpata Indian street masala.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.masalaMomos, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
       { id: 'm3', category: 'MOMOS', name: 'Steam Momos', desc: 'Soft steamed dumplings served with spicy red chutney & mayo.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.steamMomos, variants: [{ label: 'Half', price: 40 }, { label: 'Full', price: 70 }] },
@@ -1151,6 +1218,7 @@
       { id: 'm5', category: 'MOMOS', name: 'Kurkure Momos', desc: 'Ultra-crunchy cornflake-crusted fried momos with mint & red dip.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.kurkureMomos, variants: [{ label: 'Half', price: 40 }, { label: 'Full', price: 70 }] },
       { id: 'm6', category: 'MOMOS', name: 'Fry Momos', desc: 'Golden deep-fried crispy dumplings served hot with red chutney.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.fryMomos, variants: [{ label: 'Half', price: 40 }, { label: 'Full', price: 70 }] },
 
+      // 5. BURGER
       { id: 'b1', category: 'BURGER', name: 'Veg Burger', desc: 'Crispy vegetable patty, fresh lettuce, onion & creamy mayo.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.vegBurger, variants: [{ label: 'Regular', price: 30 }] },
       { id: 'b2', category: 'BURGER', name: 'Paneer Burger', desc: 'Golden spiced paneer patty layered with tangy burger sauce.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.paneerBurger, variants: [{ label: 'Regular', price: 40 }] },
       { id: 'b3', category: 'BURGER', name: 'Aalu Tikki Burger', desc: 'Crunchy herb-spiced aloo tikki in toasted sesame buns.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.tikkiBurger, variants: [{ label: 'Regular', price: 50 }] },
@@ -1158,12 +1226,14 @@
       { id: 'b5', category: 'BURGER', name: 'Chicken Burger', desc: 'Juicy crispy chicken fillet with lettuce & smoky garlic sauce.', isNonVeg: true, bestseller: false, available: true, photo: FOOD_PHOTOS.chickenBurger, variants: [{ label: 'Regular', price: 60 }] },
       { id: 'b6', category: 'BURGER', name: 'Extra Chicken Burger', desc: 'Double chicken patty loaded with melted cheese & house sauces.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.extraChickenBurger, variants: [{ label: 'Regular', price: 80 }] },
 
+      // 6. CHOW MEIN & SIDES
       { id: 'cm1', category: 'CHOW MEIN & SIDES', name: 'Veg Chow Mein', desc: 'Street-style wok-tossed noodles with crunchy julienned veggies.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.vegChowmein, variants: [{ label: 'Half', price: 40 }, { label: 'Full', price: 70 }] },
       { id: 'cm2', category: 'CHOW MEIN & SIDES', name: 'Chicken Chow Mein', desc: 'Smoky hakka noodles tossed with shredded chicken & soy-garlic.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.chickenChowmein, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
       { id: 'cm3', category: 'CHOW MEIN & SIDES', name: 'Chilli Potato', desc: 'Crispy fried potato fingers glazed in sweet & spicy chilli sauce.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.chilliPotato, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
       { id: 'cm4', category: 'CHOW MEIN & SIDES', name: 'Chilli Manchurian', desc: 'Crispy vegetable Manchurian balls tossed in spicy garlic gravy.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.manchurian, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 90 }] },
       { id: 'cm5', category: 'CHOW MEIN & SIDES', name: 'Peri Peri French Fries', desc: 'Golden crispy potato fries dusted with zesty peri-peri spice.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.fries, variants: [{ label: 'Half', price: 50 }, { label: 'Full', price: 80 }] },
 
+      // 7. SANDWICH
       { id: 's1', category: 'SANDWICH', name: 'Veg Sandwich', desc: 'Fresh cucumber, tomato, onion & mint chutney grilled toast.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.vegSandwich, variants: [{ label: 'Regular', price: 40 }] },
       { id: 's2', category: 'SANDWICH', name: 'Paneer Sandwich', desc: 'Spiced cottage cheese filling grilled golden in butter.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.paneerSandwich, variants: [{ label: 'Regular', price: 50 }] },
       { id: 's3', category: 'SANDWICH', name: 'Cheese Sandwich', desc: 'Melted mozzarella & cheddar grilled between buttery bread.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.cheeseSandwich, variants: [{ label: 'Regular', price: 70 }] },
@@ -1171,6 +1241,7 @@
       { id: 's5', category: 'SANDWICH', name: 'Extra Paneer Cheese Sandwich', desc: 'Triple-layer loaded paneer & molten cheese jumbo grill.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.extraPaneerSandwich, variants: [{ label: 'Regular', price: 100 }] },
       { id: 's6', category: 'SANDWICH', name: 'Full Loaded Chicken Cheese Sandwich', desc: 'Club-style double chicken & extra cheese grilled sandwich.', isNonVeg: true, bestseller: true, available: true, photo: FOOD_PHOTOS.fullChickenSandwich, variants: [{ label: 'Regular', price: 120 }] },
 
+      // 8. COFFEE & DRINKS
       { id: 'd1', category: 'COFFEE & DRINKS', name: 'Hot Coffee', desc: 'Rich frothy beaten cafe-style hot coffee.', isNonVeg: false, bestseller: false, available: true, photo: FOOD_PHOTOS.hotCoffee, variants: [{ label: 'Cup', price: 30 }] },
       { id: 'd2', category: 'COFFEE & DRINKS', name: 'Cold Coffee', desc: 'Thick chilled blended cold coffee with chocolate drizzle.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.coldCoffee, variants: [{ label: 'Glass', price: 40 }] },
       { id: 'd3', category: 'COFFEE & DRINKS', name: 'Cold Coffee with Icecream', desc: 'Creamy cold coffee topped with a generous vanilla ice-cream scoop.', isNonVeg: false, bestseller: true, available: true, photo: FOOD_PHOTOS.coldCoffeeIcecream, variants: [{ label: 'Glass', price: 50 }] },
@@ -1189,6 +1260,9 @@
       'COFFEE & DRINKS': '☕'
     };
 
+    /*************************************************************************
+     * D. APP STATE, PERSISTENCE & DUAL TABLE SYSTEM
+     *************************************************************************/
     const STORAGE_KEYS = {
       MENU: 'raza_menu_final_v1',
       SETTINGS: 'raza_settings_final_v1',
@@ -1204,8 +1278,7 @@
       cafeLng: 75.8398,
       dailyPin: '7860',
       arenaEnabled: true,
-      homeDeliveryEnabled: true,
-      strictQrMode: false,
+      strictQrMode: false, // False = Trial Mode (Easy Dropdown), True = Strict QR Check-In Mode
       tableTimeoutMins: 60,
       firebaseUrl: '',
       waTemplate: 'Order - Raza Fast Food | Type: {TYPE} | Items: {ITEMS} | Total: ₹{TOTAL} | Address/Note: {ADDRESS}',
@@ -1221,7 +1294,7 @@
       id: i + 1,
       name: `Table ${i + 1}`,
       token: `RFF_${i + 1}`,
-      guests: []
+      guests: [] // [{ guestId, name, phone, checkedInAt, lastActiveAt }]
     }));
 
     const DEFAULT_LEADERBOARD = [
@@ -1247,8 +1320,6 @@
       currentSlide: 0,
       slideTimer: null,
       isVideoMuted: false,
-      isHeroInViewport: true,
-      activeMainTab: 'menu',
       isAdmin: localStorage.getItem(STORAGE_KEYS.ADMIN_AUTH) === 'true',
       arenaUnlocked: sessionStorage.getItem(STORAGE_KEYS.ARENA_UNLOCKED) === 'true'
     };
@@ -1274,6 +1345,9 @@
       box._t = setTimeout(() => box.classList.add('hidden'), 2600);
     }
 
+    /*************************************************************************
+     * E. OPTIONAL MULTI-DEVICE CLOUD SYNC + 4-WAY SMART TABLE VACATE
+     *************************************************************************/
     async function pushTablesToCloudIfConfigured() {
       const url = (state.settings.firebaseUrl || '').trim().replace(/\/$/, '');
       if (!url || !navigator.onLine) return;
@@ -1301,6 +1375,7 @@
       } catch (e) {}
     }
 
+    // 4-Way Smart Table Vacate: Auto-Expiry Inactivity Check
     function cleanupExpiredTableGuests() {
       const timeoutMs = (Number(state.settings.tableTimeoutMins) || 60) * 60 * 1000;
       const now = Date.now();
@@ -1338,6 +1413,7 @@
       }
     }
 
+    // 4-Way Smart Table Vacate: GPS 100m Auto-Checkout when guest leaves cafe
     function checkGpsAutoCheckoutForSeatedGuest() {
       if (!state.guestSession || !navigator.geolocation) return;
       navigator.geolocation.getCurrentPosition((pos) => {
@@ -1347,6 +1423,7 @@
           Number(state.settings.cafeLat),
           Number(state.settings.cafeLng)
         );
+        // Only auto-checkout if clearly > 150m away from saved cafe coordinates
         if (dist > 150 && dist < 50000) {
           customerLeaveTable(true);
         }
@@ -1355,23 +1432,17 @@
 
     function handleIncomingQrUrlParams() {
       const params = new URLSearchParams(window.location.search);
-      const tableParam = params.get('table');
+      const tableNum = parseInt(params.get('table'), 10);
       const token = params.get('token');
-      if (!tableParam) return;
+      if (!tableNum || !token) return;
 
-      let tbl = null;
-      if (token) {
-        const tableNum = parseInt(tableParam, 10);
-        tbl = state.tables.find(t => t.id === tableNum && t.token === token);
-      } else {
-        tbl = state.tables.find(t => String(t.id) === tableParam || t.name.toLowerCase() === tableParam.toLowerCase());
-      }
-
+      const tbl = state.tables.find(t => t.id === tableNum && t.token === token);
       if (!tbl) {
         showToast('⚠️ Invalid Table QR Code');
         return;
       }
 
+      // Clean URL params after capturing
       try {
         window.history.replaceState({}, document.title, window.location.pathname);
       } catch (e) {}
@@ -1387,14 +1458,12 @@
       document.getElementById('qrGuestNameInput').value = state.guestSession?.name || '';
       document.getElementById('qrGuestPhoneInput').value = state.guestSession?.phone || '';
       document.getElementById('qrCheckInModal').classList.remove('hidden');
-      syncHeroVideoPlayback();
       setTimeout(() => document.getElementById('qrGuestNameInput').focus(), 100);
     }
 
     function closeQrCheckInModal() {
       document.getElementById('qrCheckInModal').classList.add('hidden');
       state.pendingQrTableId = null;
-      syncHeroVideoPlayback();
     }
 
     function confirmQrGuestCheckIn() {
@@ -1413,6 +1482,7 @@
       }
 
       if (!Array.isArray(tbl.guests)) tbl.guests = [];
+      // Remove guest from any previous table first
       state.tables.forEach(t => {
         t.guests = (t.guests || []).filter(g => g.phone !== phone);
       });
@@ -1435,6 +1505,7 @@
         phone
       };
 
+      // Auto-unlock Live Game immediately upon QR Table Check-In
       state.arenaUnlocked = true;
       sessionStorage.setItem(STORAGE_KEYS.ARENA_UNLOCKED, 'true');
 
@@ -1446,6 +1517,7 @@
       showToast(`✅ ${tbl.name} Checked-In! Menu & Live Game Unlocked!`);
     }
 
+    // 4-Way Smart Table Vacate: Customer Self "Leave Table" Button
     function customerLeaveTable(isAuto) {
       if (!state.guestSession) return;
       const tbl = state.tables.find(t => t.id === state.guestSession.tableId);
@@ -1460,7 +1532,9 @@
       showToast(isAuto ? '📍 Left Cafe Area — Table Seat Vacated' : '👋 Checked out from table. Thank you!');
     }
 
-    // 5-TAP SECRET ADMIN LOGIN ('@qwer')
+    /*************************************************************************
+     * F. INVISIBLE 5-TAP SECRET ADMIN LOGIN ('@qwer')
+     *************************************************************************/
     (function initSecretAdminTrigger() {
       const titleEl = document.getElementById('brandTitleTrigger');
       let tapTimestamps = [];
@@ -1478,7 +1552,6 @@
             document.getElementById('adminPassInput').value = '';
             document.getElementById('adminPassError').classList.add('hidden');
             document.getElementById('secretPasswordModal').classList.remove('hidden');
-            syncHeroVideoPlayback();
             setTimeout(() => document.getElementById('adminPassInput').focus(), 100);
           }
         }
@@ -1487,7 +1560,6 @@
 
     function closeSecretModal() {
       document.getElementById('secretPasswordModal').classList.add('hidden');
-      syncHeroVideoPlayback();
     }
 
     function verifyAdminPasscode() {
@@ -1518,67 +1590,9 @@
       showToast('Admin Logged Out');
     }
 
-    // SMART VIDEO AUTO-PAUSE & RESUME
-    function isAnyOverlayOpen() {
-      const overlayIds = [
-        'quickMenuOverlay',
-        'cartDrawerOverlay',
-        'qrCheckInModal',
-        'waFallbackModal',
-        'secretPasswordModal',
-        'adminDashboardModal'
-      ];
-      return overlayIds.some(id => {
-        const el = document.getElementById(id);
-        return el && !el.classList.contains('hidden');
-      });
-    }
-
-    function syncHeroVideoPlayback() {
-      const video = document.querySelector('#heroSlideStage video');
-      if (!video) return;
-
-      const shouldPlay =
-        state.isHeroInViewport &&
-        state.activeMainTab === 'menu' &&
-        !isAnyOverlayOpen() &&
-        !document.hidden;
-
-      if (shouldPlay) {
-        if (video.paused && !video.ended) {
-          const p = video.play();
-          if (p !== undefined) {
-            p.catch(() => {
-              video.muted = true;
-              state.isVideoMuted = true;
-              updateMuteButtonUI();
-              video.play().catch(() => {});
-            });
-          }
-        }
-      } else {
-        if (!video.paused) {
-          video.pause();
-        }
-      }
-    }
-
-    (function initHeroVisibilityObserver() {
-      const heroEl = document.getElementById('heroSliderContainer');
-      if (!heroEl || !('IntersectionObserver' in window)) return;
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          state.isHeroInViewport = entry.isIntersecting && entry.intersectionRatio >= 0.35;
-          syncHeroVideoPlayback();
-        });
-      }, { threshold: [0, 0.35, 0.7] });
-      observer.observe(heroEl);
-
-      document.addEventListener('visibilitychange', () => {
-        syncHeroVideoPlayback();
-      });
-    })();
-
+    /*************************************************************************
+     * G. 16:9 HERO BANNER SLIDER (Image 5s + Full Video Auto-Advance)
+     *************************************************************************/
     async function initBanners() {
       const stored = await loadBannersFromDB();
       if (stored && stored.length > 0) {
@@ -1616,6 +1630,7 @@
         video.setAttribute('playsinline', '');
         video.setAttribute('webkit-playsinline', '');
         video.muted = state.isVideoMuted;
+        video.autoplay = true;
 
         muteBtn.classList.remove('hidden');
         updateMuteButtonUI();
@@ -1626,7 +1641,16 @@
         });
 
         stage.appendChild(video);
-        syncHeroVideoPlayback();
+
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            video.muted = true;
+            state.isVideoMuted = true;
+            updateMuteButtonUI();
+            video.play().catch(() => {});
+          });
+        }
       } else {
         const img = document.createElement('img');
         img.src = slide.src;
@@ -1694,8 +1718,10 @@
       }, { passive: true });
     })();
 
+    /*************************************************************************
+     * H. DUAL MODE SWITCH (MENU vs LIVE TABLE ARENA)
+     *************************************************************************/
     function switchMainTab(tab) {
-      state.activeMainTab = tab;
       const viewMenu = document.getElementById('viewMenu');
       const viewArena = document.getElementById('viewArena');
       const btnMenu = document.getElementById('tabBtnMenu');
@@ -1717,9 +1743,11 @@
         verifyCafeLocation(false);
         renderLeaderboard();
       }
-      syncHeroVideoPlayback();
     }
 
+    /*************************************************************************
+     * I. ZOMATO SEAMLESS MENU RENDERING (46 DISHES + PHOTOS + VARIANTS)
+     *************************************************************************/
     function getCategories() {
       const cats = [];
       state.menu.forEach(item => {
@@ -1778,12 +1806,10 @@
         `;
       }).join('');
       document.getElementById('quickMenuOverlay').classList.remove('hidden');
-      syncHeroVideoPlayback();
     }
 
     function closeQuickMenuSheet() {
       document.getElementById('quickMenuOverlay').classList.add('hidden');
-      syncHeroVideoPlayback();
     }
 
     function jumpToCategory(cat) {
@@ -1995,9 +2021,7 @@
         document.getElementById('floatCartBadge').textContent = count;
         document.getElementById('floatCartTotal').textContent = subtotal;
         const hintEl = document.getElementById('floatDeliveryHint');
-        if (!state.settings.homeDeliveryEnabled) {
-          hintEl.textContent = '🍽️ Dine-In Table Order Ready';
-        } else if (subtotal >= 200) {
+        if (subtotal >= 200) {
           hintEl.textContent = '🎉 Eligible for FREE Home Delivery!';
         } else {
           hintEl.textContent = `Add ₹${200 - subtotal} more for FREE Home Delivery`;
@@ -2016,24 +2040,15 @@
         showToast('🛒 Pehle menu se apni pasand ki dish add karein!');
         return;
       }
-      if (!state.settings.homeDeliveryEnabled && state.orderType === 'delivery') {
-        state.orderType = 'dinein';
-      }
       renderCartDrawerContent();
       document.getElementById('cartDrawerOverlay').classList.remove('hidden');
-      syncHeroVideoPlayback();
     }
 
     function closeCartDrawer() {
       document.getElementById('cartDrawerOverlay').classList.add('hidden');
-      syncHeroVideoPlayback();
     }
 
     function setOrderType(type) {
-      if (type === 'delivery' && !state.settings.homeDeliveryEnabled) {
-        showToast('⏸️ Home Delivery abhi band hai (Dine-In chalu hai)');
-        return;
-      }
       state.orderType = type;
       const dineBtn = document.getElementById('orderTypeDineInBtn');
       const delBtn = document.getElementById('orderTypeDeliveryBtn');
@@ -2056,6 +2071,7 @@
 
     function renderDineInCheckoutSection() {
       const box = document.getElementById('dineInFieldBox');
+      // If guest already checked in via QR
       if (state.guestSession) {
         box.innerHTML = `
           <div class="flex items-center justify-between gap-2">
@@ -2069,6 +2085,7 @@
         return;
       }
 
+      // Strict QR Check-In Mode enabled by Admin
       if (state.settings.strictQrMode) {
         box.innerHTML = `
           <div class="space-y-2 text-center py-1">
@@ -2079,6 +2096,7 @@
         return;
       }
 
+      // Trial Mode (Default): Easy Table Dropdown + Name & 10-digit Mobile
       const prevName = document.getElementById('dineInNameInput')?.value || '';
       const prevPhone = document.getElementById('dineInPhoneInput')?.value || '';
       const prevTable = document.getElementById('dineInTableSelect')?.value || (state.tables[0]?.name || 'Table 1');
@@ -2103,16 +2121,7 @@
       const { subtotal } = getCartTotals();
       const listEl = document.getElementById('cartItemsList');
       const ruleBox = document.getElementById('deliveryRuleBox');
-      const delBtn = document.getElementById('orderTypeDeliveryBtn');
       document.getElementById('drawerGrandTotal').textContent = subtotal;
-
-      if (!state.settings.homeDeliveryEnabled) {
-        delBtn.innerHTML = '⏸️ Delivery Off';
-        delBtn.classList.add('opacity-50');
-      } else {
-        delBtn.innerHTML = '🛵 Home Delivery';
-        delBtn.classList.remove('opacity-50');
-      }
 
       if (state.cart.length === 0) {
         listEl.innerHTML = `<p class="text-center text-xs text-gray-400 py-6">Cart is empty.</p>`;
@@ -2165,6 +2174,7 @@
 
       if (state.orderType === 'dinein') {
         if (state.guestSession) {
+          // Refresh guest activity timestamp
           const tbl = state.tables.find(t => t.id === state.guestSession.tableId);
           if (tbl && Array.isArray(tbl.guests)) {
             const gObj = tbl.guests.find(g => g.guestId === state.guestSession.guestId);
@@ -2174,7 +2184,7 @@
             }
           }
           typeText = `Dine-In [${state.guestSession.tableName} | QR-Verified: ${state.guestSession.name} - ${state.guestSession.phone}]`;
-          addressOrNote = note ? `Table: ${state.guestSession.tableName} | ${note}` : `Serve at ${state.guestSession.tableName}`;
+          addressOrNote = note || `Serve at ${state.guestSession.tableName}`;
         } else {
           if (state.settings.strictQrMode) {
             if (strictValidate) showToast('📷 Kripya pehle apni table ka QR code scan karein!');
@@ -2196,6 +2206,7 @@
               document.getElementById('dineInPhoneInput')?.focus();
               return null;
             }
+            // Record guest in Admin Live Table Monitor even in Trial Mode
             const matchedTbl = state.tables.find(t => t.name === tableChoice);
             if (matchedTbl) {
               if (!Array.isArray(matchedTbl.guests)) matchedTbl.guests = [];
@@ -2217,13 +2228,9 @@
           }
 
           typeText = `Dine-In [${tableChoice} | Guest: ${guestName || 'Guest'} - ${guestPhone || 'N/A'}]`;
-          addressOrNote = note ? `Table: ${tableChoice} | ${note}` : `Serve at ${tableChoice}`;
+          addressOrNote = note || `Serve at ${tableChoice}`;
         }
       } else {
-        if (!state.settings.homeDeliveryEnabled) {
-          if (strictValidate) showToast('⏸️ Home Delivery abhi band hai!');
-          return null;
-        }
         const custName = document.getElementById('deliveryCustomerNameInput').value.trim();
         const custPhone = document.getElementById('deliveryCustomerPhoneInput').value.replace(/\D/g, '');
         const addr = document.getElementById('deliveryAddressInput').value.trim();
@@ -2261,6 +2268,7 @@
         .replace('{TOTAL}', subtotal)
         .replace('{ADDRESS}', addressOrNote);
 
+      // Strictly strip any greeting words
       msg = msg.replace(/^(hi|hello|salam|assalam\w*|namaste|hey)[,\s!.-]*/i, '').trim();
       return msg;
     }
@@ -2301,7 +2309,6 @@
       document.getElementById('waFallbackAnchor').href = waUrl;
       setTimeout(() => {
         document.getElementById('waFallbackModal').classList.remove('hidden');
-        syncHeroVideoPlayback();
       }, 600);
 
       return true;
@@ -2309,7 +2316,6 @@
 
     function closeWaFallbackModal() {
       document.getElementById('waFallbackModal').classList.add('hidden');
-      syncHeroVideoPlayback();
     }
 
     function copyOrderMessageFallback() {
@@ -2324,7 +2330,9 @@
       }
     }
 
-    // LIVE GAME ARENA
+    /*************************************************************************
+     * J. GEOFENCED "LIVE GAME" & HALAL BRAIN ARENA (AUTO-UNLOCK ON QR / GPS)
+     *************************************************************************/
     function playGameTone(type) {
       try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -2395,6 +2403,7 @@
         return;
       }
 
+      // Auto-unlock if guest checked in via Table QR OR already verified at cafe
       if (state.guestSession || state.arenaUnlocked) {
         state.arenaUnlocked = true;
         sessionStorage.setItem(STORAGE_KEYS.ARENA_UNLOCKED, 'true');
@@ -2519,6 +2528,7 @@
       document.getElementById('activeGameArenaBox').classList.add('hidden');
     }
 
+    // GAME 1: NEON TIC-TAC-TOE BATTLE (3x3 & 5x5 Pro with Win Highlight & Graphics)
     function initTicTacToeGame(container) {
       let gridSize = 3;
       let board = Array(9).fill('');
@@ -2581,6 +2591,7 @@
             <button onclick="closeActiveGame()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full">✕ Close</button>
           </div>
 
+          <!-- Graphic VS Scoreboard -->
           <div class="grid grid-cols-11 items-center gap-1.5 bg-[#0A0A0C] p-2.5 rounded-2xl mb-3 border border-white/10">
             <div class="col-span-5 text-center">
               <input id="tttTableX" value="${tableX}" oninput="window._tttSetNames()" class="w-full bg-white/5 rounded-lg px-2 py-1 text-center text-xs font-black text-[#FFC107] outline-none" />
@@ -2669,6 +2680,7 @@
       render();
     }
 
+    // GAME 2: HALAL & JAIPUR TRIVIA SHOWDOWN (With Animated Progress Bar & Streak Multiplier)
     function initHalalQuizGame(container) {
       const QUESTIONS = [
         { q: 'Jaipur ko kis mashhoor naam se jaana jaata hai?', opts: ['Blue City', 'Pink City', 'Lake City', 'Golden City'], ans: 1 },
@@ -2781,6 +2793,7 @@
             </div>
           </div>
 
+          <!-- Visual Countdown Progress Bar -->
           <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-3">
             <div id="quizTimerBar" style="width:${pct}%" class="h-full bg-gradient-to-r from-[#D32F2F] via-[#FFC107] to-green-400 transition-all duration-1000"></div>
           </div>
@@ -2826,6 +2839,7 @@
       render();
     }
 
+    // GAME 3: 60S FOODIE WORD BLITZ (Interactive Letter Tiles + Hint & Streak Multiplier)
     function initWordScrambleGame(container) {
       const WORDS = [
         { word: 'PIZZA', hint: 'Cheesy Italian round delight 🍕' },
@@ -2941,6 +2955,7 @@
           <div class="bg-[#0A0A0C] rounded-2xl p-4 text-center mb-3 border border-white/10">
             <p class="text-xs text-gray-300 mb-3">${currentObj.hint}</p>
 
+            <!-- Answer Slots -->
             <div class="flex items-center justify-center gap-1.5 mb-4 flex-wrap">
               ${builtSlots.map(ch => `
                 <span class="w-8 h-9 rounded-lg flex items-center justify-center font-black text-base ${ch !== '_' ? 'bg-[#FFC107] text-[#121212]' : 'bg-white/10 text-gray-500'}">
@@ -2949,6 +2964,7 @@
               `).join('')}
             </div>
 
+            <!-- Interactive Letter Tiles -->
             <div class="flex items-center justify-center gap-2 flex-wrap">
               ${scrambledLetters.map((letter, idx) => {
                 const used = selectedTileIndices.includes(idx);
@@ -2996,12 +3012,255 @@
       render();
     }
 
-    // ADMIN DASHBOARD
+    // GAME 2: HALAL KNOWLEDGE & JAIPUR FOOD TRIVIA QUIZ
+    function initHalalQuizGame(container) {
+      const QUESTIONS = [
+        { q: 'Jaipur ko kis mashhoor naam se jaana jaata hai?', opts: ['Blue City', 'Pink City', 'Lake City', 'Golden City'], ans: 1 },
+        { q: 'Khana khane se pehle kya padhna sunnat aur achhi aadat hai?', opts: ['Bismillah', 'Alhamdulillah', 'SubhanAllah', 'MashaAllah'], ans: 0 },
+        { q: 'Hawa Mahal Jaipur ke kis Maharaja ne banwaya tha?', opts: ['Sawai Jai Singh', 'Sawai Pratap Singh', 'Man Singh I', 'Ram Singh'], ans: 1 },
+        { q: 'Healthy diet mein sabse zaroori hydration drink kaunsa hai?', opts: ['Soda', 'Saaf Paani (Water)', 'Energy Drink', 'Syrup'], ans: 1 },
+        { q: 'Nai Ki Thadi aur Amer Road kis historical city ka hissa hain?', opts: ['Ajmer', 'Jaipur', 'Kota', 'Udaipur'], ans: 1 },
+        { q: 'Khana khate waqt kaunsa haath istemal karna best etiquette hai?', opts: ['Daaya (Right Hand)', 'Baaya (Left Hand)', 'Koi bhi', 'Chammach hi'], ans: 0 },
+        { q: 'Paneer aur Chicken kis nutrient ke rich source hain?', opts: ['Protein', 'Only Sugar', 'Plastic', 'Trans Fat'], ans: 0 },
+        { q: 'Mehmaan (Guest) ka ikram karna kaisi sifat hai?', opts: ['Naik aur Halal Akhlaq', 'Fuzool', 'Time waste', 'Ajeeb'], ans: 0 }
+      ];
+
+      const shuffled = [...QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 5);
+      let qIdx = 0;
+      let scoreA = 0;
+      let scoreB = 0;
+      let activePlayer = 'A';
+      let tableA = state.guestSession?.tableName || 'Table 1';
+      let tableB = 'Table 2';
+      let timeLeft = 15;
+      let timerId = null;
+      let finished = false;
+
+      function startQuestionTimer() {
+        clearInterval(timerId);
+        timeLeft = 15;
+        timerId = setInterval(() => {
+          timeLeft--;
+          const tEl = document.getElementById('quizTimerSpan');
+          if (tEl) tEl.textContent = `${timeLeft}s`;
+          if (timeLeft <= 0) handleAnswer(-1);
+        }, 1000);
+      }
+
+      function handleAnswer(optIdx) {
+        clearInterval(timerId);
+        const currentQ = shuffled[qIdx];
+        if (optIdx === currentQ.ans) {
+          const pts = 50 + timeLeft * 5;
+          if (activePlayer === 'A') scoreA += pts;
+          else scoreB += pts;
+          showToast(`✅ Sahi Jawab! +${pts} pts`);
+        } else {
+          showToast('❌ Galat / Time Up!');
+        }
+
+        qIdx++;
+        if (qIdx >= shuffled.length) {
+          finished = true;
+          const winnerName = scoreA >= scoreB ? tableA : tableB;
+          const winPts = Math.max(scoreA, scoreB);
+          if (winPts > 0) recordTablePoints(winnerName, winPts, '🕌 Trivia Champion');
+        } else {
+          activePlayer = activePlayer === 'A' ? 'B' : 'A';
+          startQuestionTimer();
+        }
+        render();
+      }
+
+      function render() {
+        if (finished) {
+          container.innerHTML = `
+            <div class="text-center space-y-3 py-2">
+              <h3 class="font-black text-lg text-[#FFC107]">🏆 Quiz Battle Complete!</h3>
+              <div class="grid grid-cols-2 gap-2.5">
+                <div class="bg-[#0D0D0D] p-3 rounded-2xl">
+                  <p class="text-xs text-gray-400">${tableA}</p>
+                  <p class="text-xl font-black text-[#FFC107]">${scoreA} pts</p>
+                </div>
+                <div class="bg-[#0D0D0D] p-3 rounded-2xl">
+                  <p class="text-xs text-gray-400">${tableB}</p>
+                  <p class="text-xl font-black text-green-400">${scoreB} pts</p>
+                </div>
+              </div>
+              <p class="text-sm font-extrabold text-white">
+                Winner: <span class="text-[#FFC107]">${scoreA === scoreB ? 'Tie Match!' : (scoreA > scoreB ? tableA : tableB)}</span>
+              </p>
+              <button onclick="closeActiveGame()" class="w-full bg-[#FFC107] text-[#121212] font-black text-xs py-3 rounded-full">Done &amp; View Leaderboard</button>
+            </div>
+          `;
+          return;
+        }
+
+        const item = shuffled[qIdx];
+        container.innerHTML = `
+          <div class="flex items-center justify-between mb-2.5">
+            <span class="text-xs font-black text-[#FFC107]">🕌 Halal &amp; GK Quiz (${qIdx + 1}/${shuffled.length})</span>
+            <div class="flex items-center gap-2">
+              <span id="quizTimerSpan" class="bg-[#D32F2F] text-white text-xs font-black px-2.5 py-0.5 rounded-full">${timeLeft}s</span>
+              <button onclick="closeActiveGame()" class="text-xs text-gray-400 hover:text-white font-bold">✕</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mb-3">
+            <input value="${tableA}" oninput="window._quizSetName('A', this.value)" class="bg-[#0D0D0D] rounded-xl px-3 py-1.5 text-xs font-bold text-white outline-none" />
+            <input value="${tableB}" oninput="window._quizSetName('B', this.value)" class="bg-[#0D0D0D] rounded-xl px-3 py-1.5 text-xs font-bold text-white outline-none" />
+          </div>
+
+          <p class="text-[11px] font-bold text-yellow-300 mb-2">
+            Turn: <strong>${activePlayer === 'A' ? tableA : tableB}</strong> (Score: ${scoreA} vs ${scoreB})
+          </p>
+
+          <div class="bg-[#0D0D0D] p-3.5 rounded-2xl mb-3">
+            <p class="text-sm font-extrabold text-white">${item.q}</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            ${item.opts.map((opt, idx) => `
+              <button onclick="window._quizAns(${idx})" class="bg-white/10 hover:bg-[#FFC107] hover:text-[#121212] text-white font-extrabold text-xs py-3 px-3.5 rounded-2xl text-left transition active:scale-95">
+                ${String.fromCharCode(65 + idx)}. ${opt}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      window._quizSetName = (who, val) => {
+        if (who === 'A') tableA = val;
+        else tableB = val;
+      };
+      window._quizAns = handleAnswer;
+      activeGameCleanup = () => clearInterval(timerId);
+
+      startQuestionTimer();
+      render();
+    }
+
+    // GAME 3: 60-SECOND WORD SCRAMBLE
+    function initWordScrambleGame(container) {
+      const WORDS = [
+        { word: 'PIZZA', hint: 'Cheesy Italian round delight' },
+        { word: 'MOMOS', hint: 'Steamed or Fried dumplings' },
+        { word: 'JAIPUR', hint: 'The Pink City of Rajasthan' },
+        { word: 'BURGER', hint: 'Loaded bun with patty & cheese' },
+        { word: 'COFFEE', hint: 'Hot or Cold refreshing drink' },
+        { word: 'SANDWICH', hint: 'Grilled bread snack' },
+        { word: 'CHICKEN', hint: 'Lollipop, Popcorn & Shawarma base' },
+        { word: 'PANEER', hint: 'Soft cottage cheese favourite' },
+        { word: 'NOODLES', hint: 'Spicy street-style Chow Mein' }
+      ];
+
+      let tableName = state.guestSession?.tableName || 'Table 3';
+      let score = 0;
+      let timeLeft = 60;
+      let currentObj = null;
+      let scrambledWord = '';
+      let timerId = null;
+      let finished = false;
+
+      function pickNextWord() {
+        currentObj = WORDS[Math.floor(Math.random() * WORDS.length)];
+        const arr = currentObj.word.split('');
+        do {
+          arr.sort(() => Math.random() - 0.5);
+        } while (arr.join('') === currentObj.word);
+        scrambledWord = arr.join(' ');
+      }
+
+      function checkGuess() {
+        const inp = document.getElementById('scrambleGuessInput');
+        if (!inp) return;
+        const val = inp.value.trim().toUpperCase();
+        if (val === currentObj.word) {
+          score += 100;
+          showToast('✅ Correct! +100 pts');
+          pickNextWord();
+          render();
+          setTimeout(() => {
+            const nextInp = document.getElementById('scrambleGuessInput');
+            if (nextInp) nextInp.focus();
+          }, 50);
+        } else {
+          showToast('❌ Try again!');
+        }
+      }
+
+      function render() {
+        if (finished) {
+          container.innerHTML = `
+            <div class="text-center space-y-3 py-2">
+              <h3 class="font-black text-lg text-[#FFC107]">⏱️ 60 Seconds Over!</h3>
+              <p class="text-sm text-gray-300"><strong>${tableName}</strong> Final Score:</p>
+              <p class="text-3xl font-black text-[#FFC107]">${score} pts</p>
+              <button onclick="closeActiveGame()" class="w-full bg-[#FFC107] text-[#121212] font-black text-xs py-3 rounded-full">Save &amp; View Leaderboard</button>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = `
+          <div class="flex items-center justify-between mb-2.5">
+            <span class="text-xs font-black text-[#FFC107]">🔤 60s Word Scramble</span>
+            <div class="flex items-center gap-2">
+              <span id="scrambleTimerSpan" class="bg-[#D32F2F] text-white text-xs font-black px-2.5 py-0.5 rounded-full">${timeLeft}s</span>
+              <button onclick="closeActiveGame()" class="text-xs text-gray-400 hover:text-white font-bold">✕</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <input value="${tableName}" oninput="window._scrSetTable(this.value)" class="bg-[#0D0D0D] rounded-xl px-3 py-1.5 text-xs font-bold text-white w-1/2 outline-none" placeholder="Your Table Name" />
+            <span class="text-xs font-black text-green-400">Score: ${score} pts</span>
+          </div>
+
+          <div class="bg-[#0D0D0D] rounded-2xl p-4 text-center mb-3">
+            <p class="text-[11px] text-gray-400 mb-1">Hint: ${currentObj.hint}</p>
+            <p class="text-2xl font-black tracking-widest text-[#FFC107]">${scrambledWord}</p>
+          </div>
+
+          <div class="flex gap-2">
+            <input id="scrambleGuessInput" type="text" onkeydown="if(event.key==='Enter') window._scrCheck()" placeholder="Type unscrambled word..." class="flex-1 bg-white text-[#121212] rounded-full px-4 py-2.5 text-sm font-black uppercase outline-none" />
+            <button onclick="window._scrCheck()" class="bg-[#FFC107] text-[#121212] font-black text-xs px-5 py-2.5 rounded-full">Submit</button>
+          </div>
+          <button onclick="window._scrSkip()" class="mt-2.5 w-full text-[11px] text-gray-400 hover:text-white underline">Skip Word</button>
+        `;
+      }
+
+      pickNextWord();
+      timerId = setInterval(() => {
+        timeLeft--;
+        const tEl = document.getElementById('scrambleTimerSpan');
+        if (tEl) tEl.textContent = `${timeLeft}s`;
+        if (timeLeft <= 0) {
+          clearInterval(timerId);
+          finished = true;
+          if (score > 0) recordTablePoints(tableName, score, '⚡ Word Blitz');
+          render();
+        }
+      }, 1000);
+
+      window._scrSetTable = (v) => { tableName = v; };
+      window._scrCheck = checkGuess;
+      window._scrSkip = () => { pickNextWord(); render(); };
+      activeGameCleanup = () => clearInterval(timerId);
+
+      render();
+      setTimeout(() => {
+        const inp = document.getElementById('scrambleGuessInput');
+        if (inp) inp.focus();
+      }, 100);
+    }
+
+    /*************************************************************************
+     * K. FULL 6-TAB ADMIN DASHBOARD LOGIC (PRIVATE TABLE MONITOR & QR)
+     *************************************************************************/
     function openAdminDashboard() {
       if (!state.isAdmin) return;
       cleanupExpiredTableGuests();
       document.getElementById('adminDashboardModal').classList.remove('hidden');
-      syncHeroVideoPlayback();
       renderAdminBannerList();
       renderAdminLiveTables();
       renderAdminMenuList();
@@ -3010,7 +3269,6 @@
 
     function closeAdminDashboard() {
       document.getElementById('adminDashboardModal').classList.add('hidden');
-      syncHeroVideoPlayback();
     }
 
     function switchAdminTab(tabName) {
@@ -3025,6 +3283,7 @@
       if (tabName === 'tables') renderAdminLiveTables();
     }
 
+    // 1. 16:9 Banner Upload & Reorder
     async function handleBannerUpload(event) {
       const files = Array.from(event.target.files || []);
       if (files.length === 0) return;
@@ -3104,6 +3363,7 @@
       showToast('Slide deleted');
     }
 
+    // 2. Private Live Tables & QR Manager (Visible ONLY in Admin Panel)
     function renderAdminLiveTables() {
       const total = state.tables.length;
       const occupied = state.tables.filter(t => (t.guests || []).length > 0).length;
@@ -3131,21 +3391,22 @@
         const guests = t.guests || [];
         const isOccupied = guests.length > 0;
         const qrDataUrl = `${baseUrl}?table=${t.id}&token=${t.token}`;
-        const qrImgSrc = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(qrDataUrl)}`;
+        const qrImgSrc = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(qrDataUrl)}`;
 
         return `
           <div class="bg-[#161618] rounded-2xl p-3.5 space-y-3 border ${isOccupied ? 'border-[#D32F2F]/60' : 'border-white/10'}">
             <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2 min-w-0">
-                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0 ${isOccupied ? 'bg-[#D32F2F]' : 'bg-[#24963F]'}"></span>
-                <h4 class="font-black text-sm text-white truncate">${t.name}</h4>
-                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full flex-shrink-0 ${isOccupied ? 'bg-red-950 text-[#FF6B77]' : 'bg-green-950 text-green-400'}">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full ${isOccupied ? 'bg-[#D32F2F]' : 'bg-[#24963F]'}"></span>
+                <h4 class="font-black text-sm text-white">${t.name}</h4>
+                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full ${isOccupied ? 'bg-red-950 text-[#FF6B77]' : 'bg-green-950 text-green-400'}">
                   ${isOccupied ? `Occupied (${guests.length})` : 'Free'}
                 </span>
               </div>
               <button onclick="adminDeleteTable(${t.id})" class="text-xs text-gray-500 hover:text-[#FF6B77]" title="Delete Table">🗑️</button>
             </div>
 
+            <!-- Seated Guests List (Multi-Guest 5-6 seats per table) -->
             <div class="bg-[#0D0D0D] rounded-xl p-2.5 space-y-1.5 min-h-[54px]">
               ${guests.length === 0
                 ? `<p class="text-[11px] text-gray-500 text-center py-2">Table is currently empty</p>`
@@ -3165,17 +3426,13 @@
                   }).join('')}
             </div>
 
+            <!-- QR Preview + Action Buttons -->
             <div class="flex items-center gap-3 pt-1">
               <img src="${qrImgSrc}" alt="${t.name} QR" class="w-16 h-16 rounded-xl bg-white p-1 flex-shrink-0" />
               <div class="flex-1 space-y-1.5">
-                <div class="grid grid-cols-2 gap-1.5">
-                  <button onclick="openQrCheckInModal(${t.id})" class="bg-white/10 hover:bg-white/20 text-[#FFC107] font-extrabold text-[10px] py-1.5 px-2 rounded-full">
-                    📷 Test Scan
-                  </button>
-                  <button onclick="adminDownloadTableQr(${t.id})" class="bg-[#24963F] hover:bg-green-700 text-white font-extrabold text-[10px] py-1.5 px-2 rounded-full">
-                    ⬇️ Download QR
-                  </button>
-                </div>
+                <button onclick="openQrCheckInModal(${t.id})" class="w-full bg-white/10 hover:bg-white/20 text-[#FFC107] font-extrabold text-[11px] py-1.5 rounded-full">
+                  📷 Simulate QR Scan
+                </button>
                 ${isOccupied ? `
                   <button onclick="adminVacateTable(${t.id})" class="w-full bg-[#D32F2F] hover:bg-red-700 text-white font-black text-[11px] py-1.5 rounded-full">
                     🧹 Vacate Table (${guests.length})
@@ -3188,30 +3445,6 @@
           </div>
         `;
       }).join('');
-    }
-
-    async function adminDownloadTableQr(tableId) {
-      const tbl = state.tables.find(t => t.id === tableId);
-      if (!tbl) return;
-      const baseUrl = window.location.origin + window.location.pathname;
-      const qrDataUrl = `${baseUrl}?table=${tbl.id}&token=${tbl.token}`;
-      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(qrDataUrl)}`;
-
-      try {
-        showToast(`⬇️ Downloading QR for ${tbl.name}...`);
-        const res = await fetch(qrApiUrl);
-        const blob = await res.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `RazaCafe-${tbl.name.replace(/[^a-zA-Z0-9_-]/g, '_')}-QR.png`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      } catch (e) {
-        window.open(qrApiUrl, '_blank', 'noopener,noreferrer');
-      }
     }
 
     function adminToggleStrictQrMode() {
@@ -3229,39 +3462,17 @@
     }
 
     function adminAddNewTable() {
-      const inputEl = document.getElementById('admCustomTableNameInput');
-      const customName = (inputEl ? inputEl.value : '').trim();
-
-      if (!customName) {
-        showToast('⚠️ Kripya Seat ya Table ka naam/number likhein (e.g. Table 1)');
-        if (inputEl) inputEl.focus();
-        return;
-      }
-
-      const isDuplicate = state.tables.some(
-        t => t.name.trim().toLowerCase() === customName.toLowerCase()
-      );
-      if (isDuplicate) {
-        showToast(`⚠️ "${customName}" pehle se maujood hai! Doosra naam dalein.`);
-        if (inputEl) inputEl.focus();
-        return;
-      }
-
       const nextId = state.tables.reduce((max, t) => Math.max(max, t.id), 0) + 1;
-      const randomToken = 'RFF_' + nextId + '_' + Math.random().toString(36).slice(2, 6).toUpperCase();
-
       state.tables.push({
         id: nextId,
-        name: customName,
-        token: randomToken,
+        name: `Table ${nextId}`,
+        token: `RFF_${nextId}`,
         guests: []
       });
-
-      if (inputEl) inputEl.value = '';
       saveStateToStorage();
       renderAdminLiveTables();
       renderCartDrawerContent();
-      showToast(`✅ "${customName}" ban gaya with Unique QR!`);
+      showToast(`✅ Table ${nextId} Added with Unique QR!`);
     }
 
     function adminDeleteTable(tableId) {
@@ -3308,6 +3519,7 @@
       showToast('🧹 All Tables Vacated!');
     }
 
+    // 3. Menu & Stock Manager
     function renderAdminMenuList() {
       const q = (document.getElementById('adminMenuFilter')?.value || '').toLowerCase();
       const wrap = document.getElementById('adminMenuList');
@@ -3330,8 +3542,8 @@
                 📷 Photo
                 <input type="file" accept="image/*" onchange="adminChangeDishPhoto('${item.id}', event)" class="hidden" />
               </label>
-              <button onclick="adminToggleStock('${item.id}')" class="px-2.5 py-1 rounded-full text-[10px] font-extrabold transition ${item.available ? 'bg-green-950 text-green-400 ring-1 ring-green-500/40' : 'bg-[#D32F2F] text-white'}">
-                ${item.available ? '● In Stock' : '✕ Sold Out'}
+              <button onclick="adminToggleStock('${item.id}')" class="px-2.5 py-1 rounded-full text-[10px] font-extrabold ${item.available ? 'bg-green-950 text-green-400' : 'bg-[#D32F2F]/20 text-[#FF6B77]'}">
+                ${item.available ? 'Available' : 'Out of Stock'}
               </button>
               <button onclick="adminDeleteDish('${item.id}')" class="p-1.5 bg-[#D32F2F]/20 text-[#FF6B77] rounded-full text-xs">🗑️</button>
             </div>
@@ -3371,7 +3583,6 @@
       saveStateToStorage();
       renderAdminMenuList();
       renderMenu();
-      showToast(item.available ? `✅ ${item.name} is In Stock` : `⏸️ ${item.name} marked Sold Out`);
     }
 
     function adminUpdateDishPrice(dishId, vIdx, newPrice) {
@@ -3441,6 +3652,7 @@
       showToast('✅ New Dish Added to Menu!');
     }
 
+    // 4 & 5. Populate & Save Settings
     function populateAdminSettingsFields() {
       document.getElementById('admCafeLat').value = state.settings.cafeLat;
       document.getElementById('admCafeLng').value = state.settings.cafeLng;
@@ -3456,31 +3668,6 @@
       document.getElementById('admGoogleReviewUrl').value = state.settings.googleReviewUrl;
 
       document.getElementById('admFirebaseUrl').value = state.settings.firebaseUrl || '';
-      syncMasterDeliveryUI();
-    }
-
-    function adminToggleHomeDelivery() {
-      state.settings.homeDeliveryEnabled = !state.settings.homeDeliveryEnabled;
-      saveStateToStorage();
-      syncMasterDeliveryUI();
-      applySettingsToUI();
-      if (!state.settings.homeDeliveryEnabled && state.orderType === 'delivery') {
-        state.orderType = 'dinein';
-      }
-      renderCartDrawerContent();
-      showToast(state.settings.homeDeliveryEnabled ? '🟢 Home Delivery ON!' : '⏸️ Home Delivery Paused (Dine-In Open)');
-    }
-
-    function syncMasterDeliveryUI() {
-      const btn = document.getElementById('admMasterDeliveryToggleBtn');
-      if (!btn) return;
-      if (state.settings.homeDeliveryEnabled) {
-        btn.textContent = '🟢 Delivery ON';
-        btn.className = 'px-4 py-2 rounded-full font-black text-xs bg-[#24963F] text-white flex-shrink-0 transition active:scale-95';
-      } else {
-        btn.textContent = '🔴 Delivery OFF';
-        btn.className = 'px-4 py-2 rounded-full font-black text-xs bg-[#D32F2F] text-white flex-shrink-0 transition active:scale-95';
-      }
     }
 
     function adminSetCurrentGps() {
@@ -3530,30 +3717,7 @@
     }
 
     function applySettingsToUI() {
-      const offerContent = document.getElementById('menuDeliveryOfferContent');
-      const stripEl = document.getElementById('menuDeliveryStrip');
-
-      if (state.settings.homeDeliveryEnabled) {
-        stripEl.className = 'px-4 py-2.5 hairline-b flex items-center justify-between gap-3 bg-[#FFFDF5]';
-        offerContent.innerHTML = `
-          <span class="text-base flex-shrink-0">🛵</span>
-          <p class="text-xs text-gray-700 truncate">
-            <strong class="text-[#121212] bg-[#FFC107] px-1.5 py-0.5 rounded">FREE Delivery</strong> on orders <strong class="text-[#1C1C1C]">₹200+</strong> • <span id="menuTimingBanner" class="text-gray-500">${state.settings.timings}</span>
-          </p>
-        `;
-      } else {
-        stripEl.className = 'px-4 py-2.5 hairline-b flex items-center justify-between gap-3 bg-red-50';
-        offerContent.innerHTML = `
-          <span class="text-base flex-shrink-0">🍽️</span>
-          <p class="text-xs text-[#D32F2F] font-bold truncate">
-            Home Delivery Temporarily Paused • Dine-In Table Ordering Open!
-          </p>
-        `;
-      }
-
-      const drawerTiming = document.getElementById('drawerDeliveryTimingsText');
-      if (drawerTiming) drawerTiming.textContent = state.settings.timings;
-
+      document.getElementById('menuTimingBanner').textContent = state.settings.timings;
       document.getElementById('footerTimingText').textContent = state.settings.timings;
       document.getElementById('footerAreaText').textContent = state.settings.deliveryArea;
       document.getElementById('footerInstaText').textContent = `${state.settings.instaHandle} • Nai Ki Thadi, Jaipur`;
@@ -3565,6 +3729,7 @@
       document.getElementById('footerWaSecondary').href = `https://wa.me/${state.settings.waSecondary.replace(/\D/g, '')}`;
     }
 
+    // 6. Live Sync & Backup
     function saveFirebaseSyncUrl() {
       state.settings.firebaseUrl = document.getElementById('admFirebaseUrl').value.trim();
       saveStateToStorage();
@@ -3625,6 +3790,9 @@
       reader.readAsText(file);
     }
 
+    /*************************************************************************
+     * L. INITIALIZE APPLICATION ON LOAD
+     *************************************************************************/
     window.addEventListener('DOMContentLoaded', () => {
       updateOnlineStatus();
       syncAdminUIState();
@@ -3639,6 +3807,7 @@
       handleIncomingQrUrlParams();
       pullTablesFromCloudIfConfigured();
 
+      // Periodic background housekeeping for auto-timeout & GPS checkout
       setInterval(() => {
         cleanupExpiredTableGuests();
         checkGpsAutoCheckoutForSeatedGuest();
